@@ -248,10 +248,10 @@ function App() {
             <h2>TechVaso</h2>
             <p className="lead">O vaso inteligente que cuida da sua planta enquanto você vive.</p>
             <div className="recursos">
-              <Card icon="💧" t="Irrigação automática" p="Cuida da água na medida certa." />
-              <Card icon="📊" t="Monitoramento em tempo real" p="Acompanhe a saúde da planta." />
-              <Card icon="🔔" t="Alertas e dicas no app" p="Receba avisos quando necessário." />
-              <Card icon="♻️" t="Design sustentável" p="Tecnologia, praticidade e sustentabilidade." />
+              <Card  t="Irrigação automática" p="Cuida da água na medida certa." />
+              <Card  t="Monitoramento em tempo real" p="Acompanhe a saúde da planta." />
+              <Card  t="Alertas e dicas no app" p="Receba avisos quando necessário." />
+              <Card  t="Design sustentável" p="Tecnologia, praticidade e sustentabilidade." />
             </div>
             <strong className="frase">Mais tempo para você. Mais vida para sua planta.</strong>
           </div>
