@@ -1,19 +1,32 @@
-# GardenTech
 
-SPA em React + Vite.
+# GardenTech 🌱
 
-Coloque suas imagens em `src/assets/` usando exatamente os nomes listados em `COLOQUE_AS_IMAGENS_AQUI.txt`.
+Site desenvolvido em React com Vite para apresentar o projeto GardenTech.
 
-Não existe `hero.png`. A capa usa `fundo.png`.
+## Sobre o projeto
 
-Para rodar:
-npm install
-npm run dev
+A GardenTech é um projeto voltado para tecnologia ambiental e sustentabilidade.
 
-Vercel:
-Build: npm run build
-Output: dist
+O site apresenta:
 
+- Quem somos
+- TechVaso
+- Equipes
+- Empresas parceiras
+- Atividades desenvolvidas
+- Objetivos de cada área
+- Contato
 
-## Responsividade
-Layout ajustado para desktop, tablet e celular, incluindo menu mobile, grids adaptativos e imagens fluidas.
+## Tecnologias utilizadas
+
+- React
+- Vite
+- JavaScript
+- CSS
+
+## Como rodar o projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/Matheus2570/site-gardentech.git
