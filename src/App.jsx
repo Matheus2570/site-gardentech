@@ -85,6 +85,7 @@ function App() {
       ['produto', 'produto techvaso vaso'],
       ['equipes', 'equipe equipes marketing ti rh comercial producao produção ambiental'],
       ['parcerias', 'parcerias parceiro leroy syngenta ettori'],
+      ['aplicativo', 'aplicativo app apk baixar download techvaso'],
       ['atividades', 'atividades espro verde voltinho'],
       ['solucoes', 'solucoes soluções objetivos'],
       ['contato', 'contato email e-mail telefone'],
@@ -141,6 +142,28 @@ function App() {
     setImagemTelaCheia(imagem)
   }
 
+  async function compartilharApp() {
+    const url = `${window.location.origin}/TechVaso.apk`
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: 'TechVaso para Android',
+          text: 'Baixe o aplicativo TechVaso para Android.',
+          url,
+        })
+        return
+      }
+
+      await navigator.clipboard.writeText(url)
+      alert('Link do APK copiado!')
+    } catch (erro) {
+      if (erro?.name !== 'AbortError') {
+        window.open(url, '_blank', 'noopener,noreferrer')
+      }
+    }
+  }
+
   return (
     <>
       <header className="topo">
@@ -150,9 +173,9 @@ function App() {
           </button>
 
           <nav className={menu ? 'menu aberto' : 'menu'}>
-            {['inicio', 'sobre', 'produto', 'equipes', 'parcerias', 'contato'].map((id, i) => (
+            {['inicio', 'sobre', 'produto', 'equipes', 'parcerias', 'aplicativo', 'contato'].map((id, i) => (
               <button key={id} onClick={() => ir(id)}>
-                {['Início', 'Sobre nós', 'TechVaso', 'Equipes', 'Parcerias', 'Contato'][i]}
+                {['Início', 'Sobre nós', 'TechVaso', 'Equipes', 'Parcerias', 'App', 'Contato'][i]}
               </button>
             ))}
           </nav>
@@ -358,6 +381,45 @@ function App() {
                 <p>{item[1]}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="aplicativo" className="secao appDownload">
+        <div className="container appDownloadGrid">
+          <div className="appDownloadTexto">
+            <span className="rotulo">Aplicativo</span>
+            <h2>Leve o TechVaso com você</h2>
+            <p>
+              Baixe o aplicativo TechVaso para Android e tenha uma demonstração do
+              acompanhamento de plantas, irrigação, reservatório, alertas e histórico.
+            </p>
+
+            <div className="appDownloadAcoes">
+              <a className="botaoApk" href="/TechVaso.apk" download="TechVaso.apk">
+                <span className="botaoApkIcone">↓</span>
+                <span><small>Download para Android</small><strong>Baixar TechVaso APK</strong></span>
+              </a>
+
+              <button className="botaoCompartilhar" type="button" onClick={compartilharApp}>
+                Compartilhar link
+              </button>
+            </div>
+
+            <p className="appDownloadAviso">
+              Arquivo APK para Android. Na primeira instalação, o celular pode pedir
+              permissão para instalar aplicativos de fontes externas.
+            </p>
+          </div>
+
+          <div className="appDownloadCard" aria-label="Aplicativo TechVaso para Android">
+            <img src={logoGarden} alt="Logo GardenTech" />
+            <div>
+              <span>ANDROID</span>
+              <h3>TechVaso</h3>
+              <p>Aplicativo de cuidados e acompanhamento de plantas.</p>
+            </div>
+            <a href="/TechVaso.apk" download="TechVaso.apk">Baixar APK</a>
           </div>
         </div>
       </section>
