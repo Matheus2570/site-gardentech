@@ -1,32 +1,33 @@
-
 # GardenTech 🌱
 
-Site desenvolvido em React com Vite para apresentar o projeto GardenTech.
+Site institucional desenvolvido em React + Vite para apresentação do projeto GardenTech.
 
-## Sobre o projeto
+## Funcionalidades
 
-A GardenTech é um projeto voltado para tecnologia ambiental e sustentabilidade.
+- Layout responsivo para computador, tablet e celular
+- Navegação por seções
+- Busca interna por palavras-chave
+- Carrossel de "Quem somos" com botões e gesto de arrastar
+- Equipes com abas e troca por gesto de arrastar no celular
+- Imagens de equipes, produto e atividades ampliáveis em tela cheia
+- Favicon com a logo GardenTech
 
-O site apresenta:
-
-- Quem somos
-- TechVaso
-- Equipes
-- Empresas parceiras
-- Atividades desenvolvidas
-- Objetivos de cada área
-- Contato
-
-## Tecnologias utilizadas
+## Tecnologias
 
 - React
 - Vite
 - JavaScript
 - CSS
 
-## Como rodar o projeto
-
-Clone o repositório:
+## Rodar o projeto
 
 ```bash
-git clone https://github.com/Matheus2570/site-gardentech.git
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```

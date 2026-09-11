@@ -993,3 +993,158 @@ footer{
     font-size:10px;
   }
 }
+
+/* =========================
+   ARRASTE E IMAGENS AMPLIADAS
+========================= */
+
+.imagemArrastavel{
+  position:relative;
+  min-width:0;
+  width:100%;
+  cursor:grab;
+  touch-action:pan-y;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+}
+
+.imagemArrastavel:active{
+  cursor:grabbing;
+}
+
+.imagemArrastavel img{
+  width:100%;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-user-drag:none;
+}
+
+.imagemClicavel{
+  cursor:zoom-in;
+}
+
+.dicaImagem{
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  max-width:calc(100% - 30px);
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(15,39,25,.82);
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  text-align:center;
+  white-space:nowrap;
+  pointer-events:none;
+  box-shadow:0 6px 22px rgba(0,0,0,.18);
+  opacity:.92;
+}
+
+.dicaImagemEscura{
+  background:rgba(245,237,214,.92);
+  color:#173522;
+}
+
+.equipeArrastavel{
+  position:relative;
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(0,0,0,.92);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  animation:lightboxEntrada .18s ease-out;
+}
+
+.lightbox img{
+  width:auto;
+  height:auto;
+  max-width:96vw;
+  max-height:92vh;
+  object-fit:contain;
+  border-radius:14px;
+  box-shadow:0 24px 80px rgba(0,0,0,.45);
+  animation:imagemEntrada .18s ease-out;
+}
+
+.lightboxFechar{
+  position:fixed;
+  top:max(16px, env(safe-area-inset-top));
+  right:20px;
+  z-index:10000;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  padding:0 0 4px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  font-size:32px;
+  line-height:1;
+  backdrop-filter:blur(8px);
+}
+
+.lightboxFechar:hover{
+  background:rgba(255,255,255,.25);
+}
+
+@keyframes lightboxEntrada{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes imagemEntrada{
+  from{opacity:0;transform:scale(.97)}
+  to{opacity:1;transform:scale(1)}
+}
+
+@media (hover:hover){
+  .imagemClicavel{
+    transition:filter .2s ease, transform .2s ease;
+  }
+
+  .produtoImg .imagemClicavel:hover,
+  .atividadeCard .imagemClicavel:hover{
+    filter:brightness(.95);
+  }
+}
+
+@media (max-width:600px){
+  .dicaImagem{
+    bottom:10px;
+    max-width:calc(100% - 20px);
+    padding:6px 10px;
+    font-size:10px;
+    white-space:normal;
+    width:max-content;
+  }
+
+  .lightbox{
+    padding:10px;
+  }
+
+  .lightbox img{
+    max-width:100%;
+    max-height:88vh;
+    border-radius:8px;
+  }
+
+  .lightboxFechar{
+    top:max(10px, env(safe-area-inset-top));
+    right:10px;
+    width:44px;
+    height:44px;
+  }
+}
